@@ -34,11 +34,22 @@ module.exports = function(grunt) {
 					'dist/js/app.min.js': ['app/**/*.annotated.js']
 				}
 			}
+		},
+
+		connect: {
+			server: {
+				options: {
+					port: 8000,
+					base: '.',
+					keepalive: true
+				}
+			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-ng-annotate');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 
-	grunt.registerTask('default', ['ngAnnotate', 'uglify']);
+	grunt.registerTask('default', ['ngAnnotate', 'uglify', 'connect']);
 };
