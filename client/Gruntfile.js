@@ -18,10 +18,27 @@ module.exports = function(grunt) {
 					}
 				]
 			}
+		},
+
+		// concatenation and obfuscation
+		uglify: {
+			options: {
+				report: 'min',
+				sourceMap: true,
+				sourceMapIncludeSources: true,
+				sourceMapName: 'dist/js/app.min.js.map',
+				//mangle: true
+			},
+			app: {
+				files: {
+					'dist/js/app.min.js': ['app/**/*.annotated.js']
+				}
+			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-ng-annotate');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 
-	grunt.registerTask('default', ['ngAnnotate']);
+	grunt.registerTask('default', ['ngAnnotate', 'uglify']);
 };
