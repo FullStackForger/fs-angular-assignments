@@ -2,7 +2,7 @@ angular
 	.module("app.modules.hotels")
 	.controller("HotelsController", HotelsController);
 
-function HotelsController($http) {
+function HotelsController($http, $filter, $timeout) {
 	var vm = this;
 
 	$http({
@@ -17,6 +17,7 @@ function HotelsController($http) {
 			}
 			hotel.StarsString = stars;
 		});
+		vm.hotelsData = vm.hotels;
 	}, function errorCallback(response) {
 		// called asynchronously if an error occurs
 		// or server returns response with an error status.
@@ -25,6 +26,16 @@ function HotelsController($http) {
 	vm.resetFilter = function () {
 		vm.filter = {};
 	};
+
+	var timer;
+	vm.updateFilter = function () {
+		$timeout.cancel(timer);
+		timer = $timeout(updateHotels, 500);
+	};
+
+	function updateHotels() {
+		vm.hotels = $filter('filter')(vm.hotelsData, vm.filter);
+	}
 
 	vm.predicate = 'Stars';
 	vm.reverse = true;
@@ -37,7 +48,6 @@ function HotelsController($http) {
 		{type: 'UserRating', name: 'Average Rating'},
 		{type: 'MinCost', name: 'Minimum Cost'}
 	];
-
 
 	vm.order = function(predicate) {
 		vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;

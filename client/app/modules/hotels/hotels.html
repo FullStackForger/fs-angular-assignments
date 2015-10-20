@@ -12,9 +12,14 @@
 			<p>Results: {{hotelsCtrl.hotels.length}}</p>
 		</div>
 		<div class="col-xs-8 col-sm-10 col-lg-11 container-fluid">
-			Filter: <input ng-model="hotelsCtrl.filter[hotelsCtrl.filterType]" type="text" />
-			<select ng-change="hotelsCtrl.resetFilter()"
-					name="filterField" ng-model="hotelsCtrl.filterType">
+			Filter:
+			<input type="text"
+			       ng-change="hotelsCtrl.updateFilter()"
+			       ng-model="hotelsCtrl.filter[hotelsCtrl.filterType]"/>
+
+			<select name="filterField"
+			        ng-change="hotelsCtrl.resetFilter()"
+					ng-model="hotelsCtrl.filterType">
 				<option ng-repeat="option in hotelsCtrl.filterTypes" value="{{option.type}}">{{option.name}}</option>
 			</select>
 		</div>
