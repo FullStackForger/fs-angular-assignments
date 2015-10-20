@@ -41,6 +41,7 @@ function HotelsController($http, $filter, $timeout) {
 	vm.reverse = true;
 	vm.filter = '';
 	vm.filterType ='$';
+	vm.resultLimit = '20';
 	vm.filterTypes = [
 		{type: '$', name: 'Any'},
 		{type: 'Name', name: 'Name'},
@@ -48,6 +49,7 @@ function HotelsController($http, $filter, $timeout) {
 		{type: 'UserRating', name: 'Average Rating'},
 		{type: 'MinCost', name: 'Minimum Cost'}
 	];
+	vm.resultLimits = [10, 20, 50, 100, 200];
 
 	vm.order = function(predicate) {
 		vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
