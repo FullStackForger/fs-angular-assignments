@@ -3,13 +3,14 @@
 
 	<div class="row margin-bottom-sm">
 		<div class="col-xs-12">
-			<h3>{{hotelsCtrl.title}}</h3>
-			hotels: {{hotelsCtrl.hotels.length}}
+			<h3>Hotels Directory</h3>
+			<p>Results: {{hotelsCtrl.hotels.length}}</p>
+			<p>Filter: <input ng-model="filter.$" type="text" /></p>
 		</div>
 	</div>
 
 	<div class="row margin-bottom-sm hotel"
-	     ng-repeat="hotel in hotelsCtrl.hotels track by hotel.EstablishmentId">
+	     ng-repeat="hotel in hotelsCtrl.hotels |filter:filter track by hotel.EstablishmentId">
 
 		<div class="col-xs-3 col-sm-2 col-lg-1 text-right">
 			<img src="{{hotel.ThumbnailUrl}}" class="img-thumbnail" />
