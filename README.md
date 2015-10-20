@@ -85,10 +85,8 @@ npm install
 From inside of `./client` folder execute `grunt-dev` command to launch application browser in development mode.
 Development mode skips concatenating scripts.
 
-
 If you want to build web app and launch it in the browser simply execute `grunt`. 
 It will build the application and start it in your system default web-browser.
-
 
 Development
 -----------
@@ -98,3 +96,9 @@ Foundation for Hotels Web App was [angular-seed](https://github.com/angular/angu
 
 ### Setting up dev environment
 Setting up development environment involves installing [gruntjs](http://gruntjs.com/) with CLI option and configuring it to automate builds, open application in default browser and auto-reload when changes occur on *.js, *.css and *.html files.  
+
+### Next steps
+
+ * Results pagination or infinite scrolling
+ * Unit tests with Karma
+ * Integration tests with Protractor 
