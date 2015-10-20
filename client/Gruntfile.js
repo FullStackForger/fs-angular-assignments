@@ -45,8 +45,8 @@ module.exports = function(grunt) {
 		uglify: {
 			options: {
 				report: 'min',
-				//mangle: false,
-				sourceMap: true,
+				mangle: false,
+				sourceMap: false,
 				sourceMapIncludeSources: true,
 				sourceMapName: 'dist/js/app.min.js.map'
 			},
@@ -91,7 +91,10 @@ module.exports = function(grunt) {
 
 		// opens web app in default browser
 		open: {
-			build: {
+			dev: {
+				path: 'http://localhost:' + SERVER_PORT + '/index-dev.html'
+			},
+			dist: {
 				path: 'http://localhost:' + SERVER_PORT + '/index.html'
 			}
 		}
@@ -104,5 +107,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-open');
 
-	grunt.registerTask('default', ['ngAnnotate', 'concat', 'uglify', 'connect', 'open', 'watch']);
+	grunt.registerTask('dev', ['connect', 'open:dev', 'watch']);
+	grunt.registerTask('default', ['ngAnnotate', 'concat', 'uglify', 'connect', 'open:dist', 'watch']);
 };
