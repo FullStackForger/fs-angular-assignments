@@ -1,3 +1,12 @@
 <div ng-controller="HotelsController as hotelsCtrl">
 	<h3>{{hotelsCtrl.title}}</h3>
+	<div>
+        hotels: {{hotelsCtrl.hotels.length}}
+		<div ng-repeat="hotel in hotelsCtrl.hotels track by hotel.EstablishmentId">
+			{{hotel | json}}
+			<img src="{{hotel.ThumbnailUrl}}">
+			<h3>{{hotel.name}}</h3>
+			<div>stars: {{hotel.Stars}}</div>
+		</div>
+	</div>
 </div>
