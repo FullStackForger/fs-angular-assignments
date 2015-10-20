@@ -66,7 +66,10 @@
 		</div>
 		<div class="col-xs-9 col-sm-10 col-lg-11 container-fluid">
 				<div><h3>{{::hotel.Name}} <sup class="stars">{{::hotel.StarsString}}</sup></h3></div>
-				<div>{{::hotel.EstablishmentType}} in {{::hotel.Location}}</div>
+				<div>
+					{{::hotel.EstablishmentType}} in {{::hotel.Location}},
+					distance: {{::hotel.Distance | number:1}}km
+				</div>
 				<div class="ratings">
 					<span class="rating">User&nbsp;Rating: <b>{{::hotel.UserRatingTitle}}</b></span>
 					<span class="rating">Avg.&nbsp;Rating: <b>{{::hotel.UserRating}}</b></span>
