@@ -71,7 +71,12 @@
 .sorting span.sorter a {
   cursor: pointer;
 }
-
+.hotels sup.stars {
+  color: gold;
+  font-size: 1em;
+  font-weight: bold;
+  top: 0em;
+}
 @media screen and (max-width: 480px) {
   .hotels .hotel h3 {
     margin-top: 15px;

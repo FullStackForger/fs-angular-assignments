@@ -10,6 +10,13 @@ function HotelsController($http) {
 		url: '/app/data/hotels.json'
 	}).then(function successCallback(response) {
 		vm.hotels = response.data.Establishments;
+		vm.hotels.forEach(function(hotel) {
+			var i, stars = '';
+			for (i = 0; i < hotel.Stars; i++) {
+				stars += '*';
+			}
+			hotel.StarsString = stars;
+		});
 	}, function errorCallback(response) {
 		// called asynchronously if an error occurs
 		// or server returns response with an error status.
