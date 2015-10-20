@@ -4,13 +4,20 @@
 	<div class="row margin-bottom-sm">
 		<div class="col-xs-12">
 			<h3>Hotels Directory</h3>
+		</div>
+	</div>
+	<div class="row margin-bottom-sm">
+		<div class="col-xs-4 col-sm-2 col-lg-1">
 			<p>Results: {{hotelsCtrl.hotels.length}}</p>
+		</div>
+		<div class="col-xs-8 col-sm-10 col-lg-11 container-fluid">
 			<p>Filter: <input ng-model="filter.$" type="text" /></p>
 		</div>
 	</div>
 
 	<div class="row margin-bottom-sm hotel"
-	     ng-repeat="hotel in hotelsCtrl.hotels |filter:filter track by hotel.EstablishmentId">
+	     ng-repeat="hotel in hotelsCtrl.hotels track by hotel.EstablishmentId"
+	     ng-show="([hotel] | filter:filter).length > 0">
 
 		<div class="col-xs-3 col-sm-2 col-lg-1 text-right">
 			<img src="{{::hotel.ThumbnailUrl}}" class="img-thumbnail" />
