@@ -3,7 +3,6 @@ angular
 	.controller("HotelsController", HotelsController);
 
 function HotelsController() {
-	this.title = "Hotels Directory";
 	console.log(this.hotels);
 	this.hotels = [ {
 		"Distance": 2.292091742299839,

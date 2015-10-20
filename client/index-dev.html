@@ -19,13 +19,8 @@
 
 </head>
 <body>
-<header>
-<ul class="menu">
-	<li><a href="#/">home</a></li>
-	<li><a href="#/view1">view1</a></li>
-	<li><a href="#/view2">view2</a></li>
-	<li><a href="#/hotels">hotels</a></li>
-</ul>
+<header class="container">
+	<h3>Hotels directory</h3>
 </header>
 
 <!--[if lt IE 7]>
@@ -34,18 +29,7 @@ Please <a href="http://browsehappy.com/">upgrade
 your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<main>
-	<div ng-view></div>
-</main>
-
-<footer class="container-fluid">
-	<div class="row">
-		<div class="col-xs-12">
-			Angular seed app: v<span app-version></span>
-		</div>
-	</div>
-</footer>
-
+<main ng-view></main>
 
 <!-- In production use:
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -56,11 +40,6 @@ your browser</a> to improve your experience.</p>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
 <script src="app/app.js"></script>
-<script src="app/views/view1/view1.js"></script>
-<script src="app/views/view2/view2.js"></script>
-<script src="app/components/version/version.js"></script>
-<script src="app/components/version/version-directive.js"></script>
-<script src="app/components/version/interpolate-filter.js"></script>
 <script src="app/modules/hotels/hotels-module.js"></script>
 <script src="app/modules/hotels/hotels-controller.js"></script>
 

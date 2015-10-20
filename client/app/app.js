@@ -4,17 +4,11 @@
 angular.module('myApp', [
 	'ngRoute',
 	'ui.bootstrap',
-	'myApp.views.view2',
-	'myApp.views.view2',
-	'app.modules.hotels',
-	'myApp.version'
+	'app.modules.hotels'
 ]).
 	config(['$routeProvider', function ($routeProvider) {
 		$routeProvider
-			.when('/', {
-				templateUrl: 'app/main.html'
-			})
 			.otherwise({
-				redirectTo: '/'
+				redirectTo: '/hotels'
 			});
 	}]);
