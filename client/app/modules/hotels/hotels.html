@@ -12,7 +12,11 @@
 			<p>Results: {{hotelsCtrl.hotels.length}}</p>
 		</div>
 		<div class="col-xs-8 col-sm-10 col-lg-11 container-fluid">
-			<p>Filter: <input ng-model="filter.$" type="text" /></p>
+			Filter: <input ng-model="hotelsCtrl.filter[hotelsCtrl.filterType]" type="text" />
+			<select ng-change="hotelsCtrl.resetFilter()"
+					name="filterField" ng-model="hotelsCtrl.filterType">
+				<option ng-repeat="option in hotelsCtrl.filterTypes" value="{{option.type}}">{{option.name}}</option>
+			</select>
 		</div>
 	</div>
 
@@ -54,7 +58,8 @@
 
 	<div class="row margin-bottom-sm hotel"
 	     ng-repeat="hotel in hotelsCtrl.hotels | orderBy:hotelsCtrl.predicate:hotelsCtrl.reverse track by hotel.EstablishmentId"
-	     ng-show="([hotel] | filter:filter).length > 0">
+	     ng-show="([hotel] | filter:hotelsCtrl.filter).length > 0"
+	     ng-class="{even: $even, odd: $odd}">
 
 		<div class="col-xs-3 col-sm-2 col-lg-1 text-right">
 			<img src="{{::hotel.ThumbnailUrl}}" class="img-thumbnail" />
