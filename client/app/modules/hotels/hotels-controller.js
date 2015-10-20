@@ -18,6 +18,7 @@ function HotelsController($http, $filter, $timeout) {
 			hotel.StarsString = stars;
 		});
 		vm.hotelsData = vm.hotels;
+		vm.loading = false;
 	}, function errorCallback(response) {
 		// called asynchronously if an error occurs
 		// or server returns response with an error status.
@@ -37,6 +38,7 @@ function HotelsController($http, $filter, $timeout) {
 		vm.hotels = $filter('filter')(vm.hotelsData, vm.filter);
 	}
 
+	vm.loading = true;
 	vm.predicate = 'Stars';
 	vm.reverse = true;
 	vm.filter = '';
