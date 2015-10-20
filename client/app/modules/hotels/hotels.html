@@ -1,12 +1,29 @@
-<div ng-controller="HotelsController as hotelsCtrl">
-	<h3>{{hotelsCtrl.title}}</h3>
-	<div>
-        hotels: {{hotelsCtrl.hotels.length}}
-		<div ng-repeat="hotel in hotelsCtrl.hotels track by hotel.EstablishmentId">
-			{{hotel | json}}
-			<img src="{{hotel.ThumbnailUrl}}">
-			<h3>{{hotel.name}}</h3>
-			<div>stars: {{hotel.Stars}}</div>
+<div class="container-fluid hotels"
+     ng-controller="HotelsController as hotelsCtrl">
+
+	<div class="row margin-bottom-sm">
+		<div class="col-xs-12">
+			<h3>{{hotelsCtrl.title}}</h3>
+			hotels: {{hotelsCtrl.hotels.length}}
+		</div>
+	</div>
+
+	<div class="row margin-bottom-sm hotel"
+	     ng-repeat="hotel in hotelsCtrl.hotels track by hotel.EstablishmentId">
+
+		<div class="col-xs-3 col-sm-2 col-lg-1 text-right">
+			<img src="{{hotel.ThumbnailUrl}}" class="img-thumbnail" />
+		</div>
+		<div class="col-xs-9 col-sm-10 col-lg-11 container-fluid">
+				<div><h3>{{hotel.Name}} <sup>{{hotel.Stars}}</sup></h3></div>
+				<div>{{hotel.EstablishmentType}} in {{hotel.Location}}</div>
+				<div class="ratings">
+					<span class="rating">User&nbsp;Rating: <b>{{hotel.UserRatingTitle}}</b></span>
+					<span class="rating">Avg.&nbsp;Rating: <b>{{hotel.UserRating}}</b></span>
+					<span class="rating">Total&nbsp;Ratings <b>{{hotel.UserRatingCount}}</b></span>
+				<div>
+
+			</div>
 		</div>
 	</div>
 </div>

@@ -28,3 +28,39 @@
   content: "";
   padding: 0;
 }
+
+
+.margin-bottom-sm {
+  padding-bottom: 10px;
+}
+
+.hotels .hotel {
+  border-bottom: #dedede solid 1px;
+}
+.hotels .hotel .img-thumbnail {
+  margin-top: 10px !important;
+}
+.hotels .hotel h3 {
+  margin-top: 10px;
+}
+.hotels .hotel .ratings {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .hotels .hotel h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+  }
+
+  .hotels .hotel .ratings {
+    margin-top: 15px;
+    margin-left: -90px;
+  }
+
+  .hotels .hotel .ratings .rating:first-child {
+    display: block;
+  }
+
+}
