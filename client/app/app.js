@@ -5,7 +5,7 @@ angular.module('myApp', [
 	'ngRoute',
 	'myApp.views.view2',
 	'myApp.views.view2',
-	'myApp.modules.hotels',
+	'app.modules.hotels',
 	'myApp.version'
 ]).
 	config(['$routeProvider', function ($routeProvider) {
