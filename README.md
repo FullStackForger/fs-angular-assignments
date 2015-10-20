@@ -4,9 +4,12 @@ JavaScript full stack technical test
 About
 -----
 
-This repository is a quick exercise I was given to do during interview process for one of London based companies (client name removed purpously). 
+This repository is a quick exercise I was given to do during interview process
+for one of London based companies. 
 
-Main task is to create a web page preseting [hotels.json](hotels.json) data with some filtering and sorting functionality, in accordance to modern web-standards. You can find orginal instructions [here](instructions/README.md).
+Main task is to create a web page preseting [hotels.json](hotels.json) data with
+some filtering and sorting functionality, in accordance to modern web-standards.
+You can find orginal instructions [here](instructions/README.md).
 
 ### Client requirements
 
