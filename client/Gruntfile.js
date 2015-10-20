@@ -11,31 +11,51 @@ module.exports = function(grunt) {
 		ngAnnotate: {
 			options: {
 				singleQuotes: true,
-				add: true
+				add: true,
 			},
 			app: {
 				files: [
 					{
 						expand: true,
-						src: ['app/**/*.js', '!app/**/*.test.js', '!app/**/*.annotated.js'],
+						src: ['app/**/*.js', '!app/**/*_test.js', '!app/**/*.annotated.js'],
 						ext: '.annotated.js'
 					}
 				]
 			}
 		},
 
+		// concatenates files
+		concat: {
+			options: {
+				separator: ';',
+			},
+			// configuration for grunt-ngconcat
+			ngConcat: {
+				'files': {
+					'dist/js/app.min.js' : [
+						'app/**/*.module.annotated.js',
+						'app/**/*.config.annotated.js',
+						'app/**/*.annotated.js',
+						'!app/**/*_test.js'
+				]},
+			},
+		},
+
 		// concatenation and obfuscation
 		uglify: {
 			options: {
 				report: 'min',
+				//mangle: false,
 				sourceMap: true,
 				sourceMapIncludeSources: true,
-				sourceMapName: 'dist/js/app.min.js.map',
-				//mangle: true
+				sourceMapName: 'dist/js/app.min.js.map'
 			},
 			app: {
 				files: {
-					'dist/js/app.min.js': ['app/**/*.annotated.js']
+					'dist/js/app.min.js': ['dist/js/app.min.js']
+					//	'app/**/*.module.annotated.js',
+					//	'app/**/*.config.annotated.js',
+					//	'app/**/*.annotated.js'
 				}
 			}
 		},
@@ -71,17 +91,18 @@ module.exports = function(grunt) {
 
 		// opens web app in default browser
 		open: {
-			testServer: {
+			build: {
 				path: 'http://localhost:' + SERVER_PORT + '/index.html'
 			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-ng-annotate');
+	grunt.loadNpmTasks('grunt-ngconcat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-open');
 
-	grunt.registerTask('default', ['ngAnnotate', 'uglify', 'connect', 'open', 'watch']);
+	grunt.registerTask('default', ['ngAnnotate', 'concat', 'uglify', 'connect', 'open', 'watch']);
 };
