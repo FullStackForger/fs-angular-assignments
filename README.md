@@ -82,7 +82,12 @@ npm install
 
 ### Launching Application
 
-From inside of `./client` folder simply execute `grunt` command. It will build the application and start it in your system default web-browser.
+From inside of `./client` folder execute `grunt-dev` command to launch application browser in development mode.
+Development mode skips concatenating scripts.
+
+
+If you want to build web app and launch it in the browser simply execute `grunt`. 
+It will build the application and start it in your system default web-browser.
 
 
 Development
