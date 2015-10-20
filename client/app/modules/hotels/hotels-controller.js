@@ -13,4 +13,12 @@ function HotelsController($http) {
 		// called asynchronously if an error occurs
 		// or server returns response with an error status.
 	});
+
+	vm.predicate = 'Stars';
+	vm.reverse = true;
+
+	vm.order = function(predicate) {
+		vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
+		vm.predicate = predicate;
+	};
 }
