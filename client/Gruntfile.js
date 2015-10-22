@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 				files: [
 					{
 						expand: true,
-						src: ['app/**/*.js', '!app/**/*_test.js', '!app/**/*.annotated.js'],
+						src: ['app/**/*.js', '!app/**/*.test.js', '!app/**/*.annotated.js'],
 						ext: '.annotated.js'
 					}
 				]
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 						'app/**/*.module.annotated.js',
 						'app/**/*.config.annotated.js',
 						'app/**/*.annotated.js',
-						'!app/**/*_test.js'
+						'!app/**/*.test.js'
 				]},
 			},
 		},
@@ -81,10 +81,10 @@ module.exports = function(grunt) {
 				tasks: ['ngAnnotate', 'uglify']
 			},
 			html: {
-				files: ['index.html', 'app/**/*.html']
+				files: ['*.html', 'app/**/*.html']
 			},
 			css: {
-				files: ['app/app.css']
+				files: ['*.css', 'app/**/*.css']
 			}
 		},
 

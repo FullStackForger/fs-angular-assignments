@@ -1,14 +1,12 @@
 'use strict';
-
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('app', [
 	'ngRoute',
 	'ui.bootstrap',
+	'app.modules.home',
 	'app.modules.hotels'
-]).
-	config(['$routeProvider', function ($routeProvider) {
-		$routeProvider
-			.otherwise({
-				redirectTo: '/hotels'
-			});
-	}]);
+]).config(['$routeProvider', function ($routeProvider) {
+	$routeProvider
+		.otherwise({
+			redirectTo: '/home'
+		});
+}]);

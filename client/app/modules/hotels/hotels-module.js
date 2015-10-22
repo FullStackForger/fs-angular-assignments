@@ -5,5 +5,5 @@ angular
 		$routeProvider.when('/hotels', {
 			templateUrl: 'app/modules/hotels/hotels.html',
 			controller: 'HotelsController'
-		})
+		});
 	});

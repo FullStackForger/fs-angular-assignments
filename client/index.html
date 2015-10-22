@@ -3,7 +3,7 @@
 <!--[if IE 7]><html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]><html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,10 @@
 	<link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="app/app.css">
+	<!-- app css -->
+	<link rel="stylesheet" href="app/partials/menu/menu.css">
+	<link rel="stylesheet" href="app/modules/hotels/hotels.css">
+
 	<script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
@@ -25,6 +28,7 @@ Please <a href="http://browsehappy.com/">upgrade
 your browser</a> to improve your experience.</p>
 <![endif]-->
 
+<header><div ng-include="'app/partials/menu/menu.html'"></div></header>
 <main ng-view></main>
 
 <!-- In production use:

@@ -1,0 +1,73 @@
+.hotels .margin-bottom-sm {
+    padding-bottom: 10px;
+}
+
+.hotels .hotel {
+    border-top: #dedede solid 1px;
+}
+.hotels .hotel:last-child {
+    border-bottom: #dedede solid 1px;
+}
+
+.hotels .hotel .img-thumbnail {
+    margin-top: 10px !important;
+}
+
+.hotels .hotel h3 {
+    margin-top: 10px;
+}
+
+.hotels .hotel .ratings {
+    margin-top: 10px;
+}
+.hotels .hotel.even {
+    background: #fafafa;
+}
+
+.hotels .sorting span {
+    margin-right: 10px;
+}
+.hotels .sorting .sortorder:after {
+    color: cornflowerblue;
+    content: '\25b2';
+}
+
+.hotels .sorting .sortorder.reverse:after {
+    content: '\25bc';
+}
+
+.hotels .sorting span.sorter a {
+    cursor: pointer;
+}
+.hotels sup.stars {
+    color: gold;
+    font-size: 1em;
+    font-weight: bold;
+    top: 0em;
+}
+.hotels .loader {
+    width: 15px;
+    height: 15px;
+    background-image: url('img/loader.gif');
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+@media screen and (max-width: 480px) {
+    .hotels .hotel h3 {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-size: 1.5em;
+    }
+
+    .sorting span {
+        margin-right: 20px;
+    }
+
+    .hotels .hotel .ratings .rating:first-child {
+        display: block;
+    }
+
+}
