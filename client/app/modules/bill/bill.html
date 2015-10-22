@@ -1,0 +1,12 @@
+<div class="container-fluid hotels" ng-controller="BillController as billCtrl">
+	<div class="row" ng-show="!!billCtrl.errorMessage">
+		<div class="col-xs-12" >
+			<h3>{{::billCtrl.errorMessage}}</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<pre>{{::billCtrl.bill | json}}</pre>
+		</div>
+	</div>
+</div>
