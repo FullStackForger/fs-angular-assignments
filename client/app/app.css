@@ -1,0 +1,9 @@
+.loader {
+    width: 15px;
+    height: 15px;
+    background-image: url('img/loader.gif');
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
