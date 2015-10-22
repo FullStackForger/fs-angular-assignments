@@ -1,0 +1,17 @@
+.bill .statement {
+    color: #888888;
+}
+.bill .statement .date-label {
+    width: 60px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 10px;
+}
+.bill .statement .date {
+    color: #444444;
+}
+.bill .statement .currency {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #444444;
+}
