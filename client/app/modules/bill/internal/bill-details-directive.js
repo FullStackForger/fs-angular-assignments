@@ -3,7 +3,7 @@ angular
 	.directive('billDetails', function() {
 		return {
 			restrict: 'E',
-			templateUrl: 'app/modules/bill/bill-details-directive.tpl.html',
+			templateUrl: 'app/modules/bill/internal/bill-details-directive.tpl.html',
 			scope: {
 				labels: '=',
 				dataset: '=',
