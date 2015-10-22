@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" ng-class="{active: billCtrl.selection === 'subscriptions'}">
+				<a ng-click="billCtrl.selection='subscriptions'" role="tab">Subscriptions</a>
+			</li>
+			<li role="presentation" ng-class="{active: billCtrl.selection === 'calls'}">
+				<a ng-click="billCtrl.selection='calls'" role="tab">Call charges</a>
+			</li>
+			<li role="presentation" ng-class="{active: billCtrl.selection === 'purchases'}">
+				<a ng-click="billCtrl.selection='purchases'" role="tab" >Purchases</a>
+			</li>
+		</ul>
+	</div>
+</div>

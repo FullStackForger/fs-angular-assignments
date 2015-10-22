@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" class="details" >
+		<!-- subscriptions -->
+		<bill-details ng-show="billCtrl.selection === 'subscriptions'"
+		              dataset="billCtrl.package.subscriptions"
+		              labels="['Subscription', 'Cost']"
+		              fields="['name', 'cost']"
+		              total="billCtrl.package.total"></bill-details>
+
+		<!-- calls -->
+		<bill-details ng-show="billCtrl.selection === 'calls'"
+		              dataset="billCtrl.callCharges.calls"
+		              labels="['Phone number', 'Duration', 'Cost']"
+		              fields="['called', 'duration', 'cost']"
+		              total="billCtrl.callCharges.total"></bill-details>
+
+		<!-- purchases -->
+		<bill-details ng-show="billCtrl.selection === 'purchases'"
+		              dataset="billCtrl.skyStore.rentals"
+		              labels="['Rentals', 'Cost']"
+		              fields="['title', 'cost']"
+		              total="null"></bill-details><!--
+			--><bill-details ng-show="billCtrl.selection === 'purchases'"
+		                     dataset="billCtrl.skyStore.buyAndKeep"
+		                     labels="['Rentals', 'Cost']"
+		                     fields="['title', 'cost']"
+		                     total="billCtrl.skyStore.total"></bill-details>
+	</div>
+</div>

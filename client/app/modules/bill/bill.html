@@ -5,66 +5,7 @@
 		</div>
 	</div>
 
-	<div class="row statement">
-		<div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 row">
-			<div class="col-xs-6 col-sm-4" >
-				<p><span class="date-label">Date:</span><span class="date">{{billCtrl.statement.generated}}</span></p>
-				<p><span class="date-label">Due:</span><span class="date">{{billCtrl.statement.due}}</span></p>
-				<p>Amount: <span class="currency">{{billCtrl.total | currency:"":2}} GBP</span></p>
-			</div>
-			<div class="col-xs-6 col-sm-8 text-right" >
-				<p>Current billing period</p>
-				<p><span class="date-label">from:</span><span class="date">{{billCtrl.statement.generated}}</span></p>
-				<p><span class="date-label">to:</span><span class="date">{{billCtrl.statement.due}}</span></p>
-			</div>
-		</div>
-	</div>
-
-	<!-- tab menu -->
-	<div class="row">
-		<div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" ng-class="{active: billCtrl.selection === 'subscriptions'}">
-					<a ng-click="billCtrl.selection='subscriptions'" role="tab">Subscriptions</a>
-				</li>
-				<li role="presentation" ng-class="{active: billCtrl.selection === 'calls'}">
-					<a ng-click="billCtrl.selection='calls'" role="tab">Call charges</a>
-				</li>
-				<li role="presentation" ng-class="{active: billCtrl.selection === 'purchases'}">
-					<a ng-click="billCtrl.selection='purchases'" role="tab" >Purchases</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-	<!-- details -->
-	<div class="row">
-		<div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" class="details" >
-			<!-- subscriptions -->
-			<bill-details ng-show="billCtrl.selection === 'subscriptions'"
-			              dataset="billCtrl.package.subscriptions"
-			              labels="['Subscription', 'Cost']"
-			              fields="['name', 'cost']"
-			              total="billCtrl.package.total"></bill-details>
-
-			<!-- calls -->
-			<bill-details ng-show="billCtrl.selection === 'calls'"
-			              dataset="billCtrl.callCharges.calls"
-			              labels="['Phone number', 'Duration', 'Cost']"
-			              fields="['called', 'duration', 'cost']"
-			              total="billCtrl.callCharges.total"></bill-details>
-
-			<!-- purchases -->
-			<bill-details ng-show="billCtrl.selection === 'purchases'"
-			              dataset="billCtrl.skyStore.rentals"
-			              labels="['Rentals', 'Cost']"
-			              fields="['title', 'cost']"
-			              total="null"></bill-details><!--
-			--><bill-details ng-show="billCtrl.selection === 'purchases'"
-			              dataset="billCtrl.skyStore.buyAndKeep"
-			              labels="['Rentals', 'Cost']"
-			              fields="['title', 'cost']"
-			              total="billCtrl.skyStore.total"></bill-details>
-		</div>
-	</div>
+	<div ng-include="'app/modules/bill/partials/bill-statement.tpl.html'"></div>
+	<div ng-include="'app/modules/bill/partials/bill-tabs.tpl.html'"></div>
+	<div ng-include="'app/modules/bill/partials/bill-details.tpl.html'"></div>
 </div>
