@@ -1,20 +1,21 @@
+.menu-wrapper {
+    background: #052e5f;
+    margin: 0px 0 20px;
+}
 .menu {
     list-style: none;
     border-bottom: 0.1em solid black;
-    margin-bottom: 2em;
     padding: 0.5em;
-    background: #052e5f;
     color: #d3e4ff;
     font-size: 1.4em;
+    margin: 0px;
 }
 
 .menu:before {
-    content: "[";
     padding-right: 0.5em;
 }
 
 .menu:after {
-    content: "]";
     padding-left: 0.5em;
 }
 
@@ -24,7 +25,6 @@
 }
 
 .menu > li:before {
-    content: "|";
     padding: 0.5em;
 }
 
