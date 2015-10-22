@@ -1,0 +1,25 @@
+<div class="details">
+	<table class="table">
+		<thead>
+		<tr>
+			<th ng-repeat="label in labels">{{label}}</th>
+		</tr>
+		</thead>
+		<tr ng-repeat="item in dataset"
+		    ng-class="{even: $even}">
+
+			<td ng-repeat="field in fields">
+				<span ng-if="!$last">{{::item[field]}}</span>
+				<span ng-if="$last">{{::item[field]| currency:"":2}} GBP</span>
+			</td>
+		</tr>
+		<tfoot ng-if="total">
+		<tr>
+			<th ng-repeat="field in fields">
+				<span ng-if="$first">Total</span>
+				<span ng-if="$last">{{total | currency:"":2}} GBP</span>
+			</th>
+		</tr>
+		</tfoot>
+	</table>
+</div>

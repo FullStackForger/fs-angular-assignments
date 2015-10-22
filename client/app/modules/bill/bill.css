@@ -1,5 +1,6 @@
 .bill .statement {
     color: #888888;
+    padding-bottom: 20px;
 }
 .bill .statement .date-label {
     width: 60px;
@@ -16,8 +17,14 @@
     color: #444444;
 }
 
+
 .bill .details {
-    padding: 15px 20px 10px 20px;
+    padding: 0;
+    margin: 20px 10px;
+}
+.bill .details .table {
+    padding: 0;
+    margin: 0;
 }
 
 .bill .details .table tr.even {
@@ -26,4 +33,12 @@
 .bill .details .table tr > th:last-child,
 .bill .details .table tr > td:last-child {
     width: 200px;
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .bill .details .table tr > th:last-child,
+    .bill .details .table tr > td:last-child {
+        width: 140px;
+    }
 }

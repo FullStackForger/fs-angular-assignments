@@ -6,21 +6,23 @@
 	</div>
 
 	<div class="row statement">
-		<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" >
-			<p>Current billing period</p>
-			<p><span class="date-label">from:</span><span class="date">{{billCtrl.statement.generated}}</span></p>
-			<p><span class="date-label">to:</span><span class="date">{{billCtrl.statement.due}}</span></p>
-		</div>
-		<div class="col-xs-6 col-sm-8 col-md-10 col-lg-10" >
-			<p><span class="date-label">Date:</span><span class="date">{{billCtrl.statement.generated}}</span></p>
-			<p><span class="date-label">Due:</span><span class="date">{{billCtrl.statement.due}}</span></p>
-			<p>Amount: <span class="currency">{{billCtrl.total | currency:"":2}} GBP</span></p>
+		<div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 row">
+			<div class="col-xs-6 col-sm-4" >
+				<p><span class="date-label">Date:</span><span class="date">{{billCtrl.statement.generated}}</span></p>
+				<p><span class="date-label">Due:</span><span class="date">{{billCtrl.statement.due}}</span></p>
+				<p>Amount: <span class="currency">{{billCtrl.total | currency:"":2}} GBP</span></p>
+			</div>
+			<div class="col-xs-6 col-sm-8 text-right" >
+				<p>Current billing period</p>
+				<p><span class="date-label">from:</span><span class="date">{{billCtrl.statement.generated}}</span></p>
+				<p><span class="date-label">to:</span><span class="date">{{billCtrl.statement.due}}</span></p>
+			</div>
 		</div>
 	</div>
 
 	<!-- tab menu -->
 	<div class="row">
-		<div class="col-xs-12 col-md-6">
+		<div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
 			<ul class="nav nav-tabs" role="tablist">
 				<li role="presentation" ng-class="{active: billCtrl.selection === 'subscriptions'}">
 					<a ng-click="billCtrl.selection='subscriptions'" role="tab">Subscriptions</a>
@@ -35,103 +37,34 @@
 		</div>
 	</div>
 
-
+	<!-- details -->
 	<div class="row">
-		<!-- subscriptions -->
-		<div class="col-xs-12 col-md-6 details" ng-show="billCtrl.selection === 'subscriptions'">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Subscription</th>
-						<th>Cost</th>
-					</tr>
-				</thead>
-				<tr ng-repeat="call in billCtrl.package.subscriptions"
-					ng-class="{even: $even}">
+		<div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" class="details" >
+			<!-- subscriptions -->
+			<bill-details ng-show="billCtrl.selection === 'subscriptions'"
+			              dataset="billCtrl.package.subscriptions"
+			              labels="['Subscription', 'Cost']"
+			              fields="['name', 'cost']"
+			              total="billCtrl.package.total"></bill-details>
 
-					<td>{{::call.name}} ({{::call.type}})</td>
-					<td>{{::call.cost | currency:"":2}} GBP</td>
-				</tr>
-			</table>
-			<table class="table">
-				<tfoot>
-				<tr>
-					<th>Total</th>
-					<th>{{::billCtrl.package.total | currency:"":2}} GBP</th>
-				</tr>
-				</tfoot>
-			</table>
-		</div>
+			<!-- calls -->
+			<bill-details ng-show="billCtrl.selection === 'calls'"
+			              dataset="billCtrl.callCharges.calls"
+			              labels="['Phone number', 'Duration', 'Cost']"
+			              fields="['called', 'duration', 'cost']"
+			              total="billCtrl.callCharges.total"></bill-details>
 
-		<!-- calls -->
-		<div class="col-xs-12 col-md-6 details" ng-show="billCtrl.selection === 'calls'">
-			<table class="table">
-				<thead>
-				<tr>
-					<th>Phone number</th>
-					<th>Duration</th>
-					<th>Cost</th>
-				</tr>
-				</thead>
-				<tr ng-repeat="call in billCtrl.callCharges.calls"
-				    ng-class="{even: $even}">
-
-					<td>{{::call.called}}</td>
-					<td>{{::call.duration}}</td>
-					<td>{{::call.cost | currency:"":2}} GBP</td>
-				</tr>
-			</table>
-			<table class="table">
-				<tfoot>
-				<tr>
-					<th>Total</th>
-					<th>{{::billCtrl.skyStore.total | currency:"":2}} GBP</th>
-				</tr>
-				</tfoot>
-			</table>
-		</div>
-
-		<!-- purchases -->
-		<div class="col-xs-12 col-md-6 details" ng-show="billCtrl.selection === 'purchases'">
-
-			<table class="table">
-				<thead>
-				<tr>
-					<th>Rentals</th>
-					<th>Cost</th>
-				</tr>
-				</thead>
-				<tr ng-repeat="call in billCtrl.skyStore.rentals"
-				    ng-class="{even: $even}">
-
-					<td class="item">{{::call.title}}</td>
-					<td>{{::call.cost | currency:"":2}} GBP</td>
-				</tr>
-			</table>
-			<table class="table">
-				<thead>
-				<tr>
-					<th>Purchases</th>
-					<th>Cost</th>
-				</tr>
-				</thead>
-				<tr ng-repeat="call in billCtrl.skyStore.buyAndKeep"
-				    ng-class="{even: $even}">
-
-					<td class="item">{{::call.title}}</td>
-					<td>{{::call.cost | currency:"":2}} GBP</td>
-				</tr>
-			</table>
-			<table class="table">
-				<tfoot>
-					<tr>
-						<th>Total</th>
-						<th>{{::billCtrl.skyStore.total | currency:"":2}} GBP</th>
-					</tr>
-				</tfoot>
-			</table>
+			<!-- purchases -->
+			<bill-details ng-show="billCtrl.selection === 'purchases'"
+			              dataset="billCtrl.skyStore.rentals"
+			              labels="['Rentals', 'Cost']"
+			              fields="['title', 'cost']"
+			              total="null"></bill-details><!--
+			--><bill-details ng-show="billCtrl.selection === 'purchases'"
+			              dataset="billCtrl.skyStore.buyAndKeep"
+			              labels="['Rentals', 'Cost']"
+			              fields="['title', 'cost']"
+			              total="billCtrl.skyStore.total"></bill-details>
 		</div>
 	</div>
-
-
 </div>
