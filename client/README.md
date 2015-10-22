@@ -1,108 +1,36 @@
-> Hotels App is based on Angular seed
-> Original Angular Seed info below
+Client App
+==========
 
-# angular-seed — the seed for AngularJS apps
+Client App is based on [angular-seed][angular-seed] application.
 
-This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
-You can use it to quickly bootstrap your angular webapp projects and dev environment for these
-projects.
+## Launching Application
 
-The seed contains a sample AngularJS application and is preconfigured to install the Angular
-framework and a bunch of development and testing tools for instant web development gratification.
+From inside of `./client` folder execute `grunt-dev` command to launch application browser in development mode.
+Development mode skips concatenating scripts.
 
-The seed app doesn't do much, just shows how to wire two controllers and views together.
-
-
-## Getting Started
-
-To get you started you can simply clone the angular-seed repository and install the dependencies:
-
-### Prerequisites
-
-You need git to clone the angular-seed repository. You can get git from
-[http://git-scm.com/](http://git-scm.com/).
-
-We also use a number of node.js tools to initialize and test angular-seed. You must have node.js and
-its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
-
-### Clone angular-seed
-
-Clone the angular-seed repository using [git][git]:
-
-```
-git clone https://github.com/angular/angular-seed.git
-cd angular-seed
-```
-
-If you just want to start a new project without the angular-seed commit history then you can do:
-
-```bash
-git clone --depth=1 https://github.com/angular/angular-seed.git <your-project-name>
-```
-
-The `depth=1` tells git to only pull down one commit worth of historical data.
-
-### Install Dependencies
-
-We have two kinds of dependencies in this project: tools and angular framework code.  The tools help
-us manage and test the application.
-
-* We get the tools we depend upon via `npm`, the [node package manager][npm].
-* We get the angular code via `bower`, a [client-side code package manager][bower].
-
-We have preconfigured `npm` to automatically run `bower` so we can simply do:
-
-```
-npm install
-```
-
-Behind the scenes this will also call `bower install`.  You should find that you have two new
-folders in your project.
-
-* `node_modules` - contains the npm packages for the tools we need
-* `app/bower_components` - contains the angular framework files
-
-*Note that the `bower_components` folder would normally be installed in the root folder but
-angular-seed changes this location through the `.bowerrc` file.  Putting it in the app folder makes
-it easier to serve the files by a webserver.*
-
-### Run the Application
-
-We have preconfigured the project with a simple development web server.  The simplest way to start
-this server is:
-
-```
-npm start
-```
-
-Now browse to the app at `http://localhost:8000/app/index.html`.
-
-
+If you want to build web app and launch it in the browser simply execute `grunt`. 
+It will build the application and start it in your system default web-browser.
 
 ## Directory Layout
 
 ```
 app/                    --> all of the source files for the application
   app.css               --> default stylesheet
-  components/           --> all app specific modules
-    version/              --> version related components
-      version.js                 --> version module declaration and basic "version" value service
-      version_test.js            --> "version" value service tests
-      version-directive.js       --> custom directive that returns the current app version
-      version-directive_test.js  --> version directive tests
-      interpolate-filter.js      --> custom interpolation filter
-      interpolate-filter_test.js --> interpolate filter tests
+  modules/              --> all app specific modules
+    custom/                 --> module folder
+      custom-module.js            --> module declaration
+      custom-module.test.js       --> module tests
+      custom-directive.js         --> custom directive
+      custom-directive.test.js    --> version directive tests
+      custom-filter.js            --> custom interpolation filter
+      custom-filter.test.js       --> interpolate filter tests
   view1/                --> the view1 view template and logic
-    view1.html            --> the partial template
-    view1.js              --> the controller logic
-    view1_test.js         --> tests of the controller
-  view2/                --> the view2 view template and logic
-    view2.html            --> the partial template
-    view2.js              --> the controller logic
-    view2_test.js         --> tests of the controller
+    view1.html              --> the partial template
+    view1.js                --> the controller logic
+    view1_test.js           --> tests of the controller 
   app.js                --> main application module
-  index.html            --> app layout file (the main html template file of the app)
-  index-async.html      --> just like index.html, but loads js files asynchronously
+  index.html            --> application bootstrap file (deployment)
+  index-dev.html        --> application bootstrap file (development)
 karma.conf.js         --> config file for running unit tests with Karma
 e2e-tests/            --> end-to-end tests
   protractor-conf.js    --> Protractor config file
@@ -115,12 +43,14 @@ There are two kinds of tests in the angular-seed application: Unit tests and End
 
 ### Running Unit Tests
 
+> borrowed from [angular-seed][angular-seed] documentation
+
 The angular-seed app comes preconfigured with unit tests. These are written in
 [Jasmine][jasmine], which we run with the [Karma Test Runner][karma]. We provide a Karma
 configuration file to run them.
 
 * the configuration is found at `karma.conf.js`
-* the unit tests are found next to the code they are testing and are named as `..._test.js`.
+* the unit tests are found next to the code they are testing and are named as `....test.js`.
 
 The easiest way to run the unit tests is to use the supplied npm script:
 
@@ -178,45 +108,7 @@ npm run protractor
 This script will execute the end-to-end tests against the application being hosted on the
 development server.
 
-
-## Updating Angular
-
-Previously we recommended that you merge in changes to angular-seed into your own fork of the project.
-Now that the angular framework library code and tools are acquired through package managers (npm and
-bower) you can use these tools instead to update the dependencies.
-
-You can update the tool dependencies by running:
-
-```
-npm update
-```
-
-This will find the latest versions that match the version ranges specified in the `package.json` file.
-
-You can update the Angular dependencies by running:
-
-```
-bower update
-```
-
-This will find the latest versions that match the version ranges specified in the `bower.json` file.
-
-
-## Loading Angular Asynchronously
-
-The angular-seed project supports loading the framework and application scripts asynchronously.  The
-special `index-async.html` is designed to support this style of loading.  For it to work you must
-inject a piece of Angular JavaScript into the HTML page.  The project has a predefined script to help
-do this.
-
-```
-npm run update-index-async
-```
-
-This will copy the contents of the `angular-loader.js` library file into the `index-async.html` page.
-You can run this every time you update the version of Angular that you are using.
-
-
+<!--
 ## Serving the Application Files
 
 While angular is client-side-only technology and it's possible to create angular webapps that
@@ -288,7 +180,7 @@ along with a CI service (in Jenkins) hosted that will run unit and end to end te
 ## Contact
 
 For more information on AngularJS please check out http://angularjs.org/
-
+-->
 [git]: http://git-scm.com/
 [bower]: http://bower.io
 [npm]: https://www.npmjs.org/
@@ -298,3 +190,4 @@ For more information on AngularJS please check out http://angularjs.org/
 [karma]: http://karma-runner.github.io
 [travis]: https://travis-ci.org/
 [http-server]: https://github.com/nodeapps/http-server
+[angular-seed]: https://github.com/angular/angular-seed/blob/master/README.md
