@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
 
-	var connectLiveReload = require('connect-livereload'),
-		SERVER_PORT = 8000,
+	var SERVER_PORT = 8000,
 		LIVERELOAD_PORT = 35729;
 
 	grunt.initConfig({
