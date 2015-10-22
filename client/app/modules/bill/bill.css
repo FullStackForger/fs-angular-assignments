@@ -19,3 +19,11 @@
 .bill .details {
     padding: 15px 20px 10px 20px;
 }
+
+.bill .details .table tr.even {
+    background: #fafafa;
+}
+.bill .details .table tr > th:last-child,
+.bill .details .table tr > td:last-child {
+    width: 200px;
+}

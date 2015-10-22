@@ -18,10 +18,13 @@
 		</div>
 	</div>
 
-
+	<!-- tab menu -->
 	<div class="row">
-		<div class="col-xs-12">
+		<div class="col-xs-12 col-md-6">
 			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" ng-class="{active: billCtrl.selection === 'subscriptions'}">
+					<a ng-click="billCtrl.selection='subscriptions'" role="tab">Subscriptions</a>
+				</li>
 				<li role="presentation" ng-class="{active: billCtrl.selection === 'calls'}">
 					<a ng-click="billCtrl.selection='calls'" role="tab">Call charges</a>
 				</li>
@@ -30,11 +33,103 @@
 				</li>
 			</ul>
 		</div>
-		<div class="col-xs-12 details" ng-show="billCtrl.selection === 'calls'">
-			<pre>{{billCtrl.callCharges.calls | json}}</pre>
+	</div>
+
+
+	<div class="row">
+		<!-- subscriptions -->
+		<div class="col-xs-12 col-md-6 details" ng-show="billCtrl.selection === 'subscriptions'">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Subscription</th>
+						<th>Cost</th>
+					</tr>
+				</thead>
+				<tr ng-repeat="call in billCtrl.package.subscriptions"
+					ng-class="{even: $even}">
+
+					<td>{{::call.name}} ({{::call.type}})</td>
+					<td>{{::call.cost | currency:"":2}} GBP</td>
+				</tr>
+			</table>
+			<table class="table">
+				<tfoot>
+				<tr>
+					<th>Total</th>
+					<th>{{::billCtrl.package.total | currency:"":2}} GBP</th>
+				</tr>
+				</tfoot>
+			</table>
 		</div>
-		<div class="col-xs-12 details" ng-show="billCtrl.selection === 'purchases'">
-			<pre>{{billCtrl.skyStore | json}}</pre>
+
+		<!-- calls -->
+		<div class="col-xs-12 col-md-6 details" ng-show="billCtrl.selection === 'calls'">
+			<table class="table">
+				<thead>
+				<tr>
+					<th>Phone number</th>
+					<th>Duration</th>
+					<th>Cost</th>
+				</tr>
+				</thead>
+				<tr ng-repeat="call in billCtrl.callCharges.calls"
+				    ng-class="{even: $even}">
+
+					<td>{{::call.called}}</td>
+					<td>{{::call.duration}}</td>
+					<td>{{::call.cost | currency:"":2}} GBP</td>
+				</tr>
+			</table>
+			<table class="table">
+				<tfoot>
+				<tr>
+					<th>Total</th>
+					<th>{{::billCtrl.skyStore.total | currency:"":2}} GBP</th>
+				</tr>
+				</tfoot>
+			</table>
+		</div>
+
+		<!-- purchases -->
+		<div class="col-xs-12 col-md-6 details" ng-show="billCtrl.selection === 'purchases'">
+
+			<table class="table">
+				<thead>
+				<tr>
+					<th>Rentals</th>
+					<th>Cost</th>
+				</tr>
+				</thead>
+				<tr ng-repeat="call in billCtrl.skyStore.rentals"
+				    ng-class="{even: $even}">
+
+					<td class="item">{{::call.title}}</td>
+					<td>{{::call.cost | currency:"":2}} GBP</td>
+				</tr>
+			</table>
+			<table class="table">
+				<thead>
+				<tr>
+					<th>Purchases</th>
+					<th>Cost</th>
+				</tr>
+				</thead>
+				<tr ng-repeat="call in billCtrl.skyStore.buyAndKeep"
+				    ng-class="{even: $even}">
+
+					<td class="item">{{::call.title}}</td>
+					<td>{{::call.cost | currency:"":2}} GBP</td>
+				</tr>
+			</table>
+			<table class="table">
+				<tfoot>
+					<tr>
+						<th>Total</th>
+						<th>{{::billCtrl.skyStore.total | currency:"":2}} GBP</th>
+					</tr>
+				</tfoot>
+			</table>
 		</div>
 	</div>
 
