@@ -16,15 +16,27 @@
 			<p><span class="date-label">Due:</span><span class="date">{{billCtrl.statement.due}}</span></p>
 			<p>Amount: <span class="currency">{{billCtrl.total | currency:"":2}} GBP</span></p>
 		</div>
-
-
 	</div>
+
 
 	<div class="row">
-		<pre>{{billCtrl.callCharges.calls | json}}</pre>
+		<div class="col-xs-12">
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" ng-class="{active: billCtrl.selection === 'calls'}">
+					<a ng-click="billCtrl.selection='calls'" role="tab">Call charges</a>
+				</li>
+				<li role="presentation" ng-class="{active: billCtrl.selection === 'purchases'}">
+					<a ng-click="billCtrl.selection='purchases'" role="tab" >Purchases</a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-xs-12 details" ng-show="billCtrl.selection === 'calls'">
+			<pre>{{billCtrl.callCharges.calls | json}}</pre>
+		</div>
+		<div class="col-xs-12 details" ng-show="billCtrl.selection === 'purchases'">
+			<pre>{{billCtrl.skyStore | json}}</pre>
+		</div>
 	</div>
 
-	<div class="row">
-		<pre>{{billCtrl.skyStore | json}}</pre>
-	</div>
+
 </div>

@@ -4,6 +4,7 @@ angular
 
 function BillController($http) {
 	var vm = this;
+	vm.selection = 'calls';
 
 	$http
 		.get('app/modules/bill/data/bill.json')
