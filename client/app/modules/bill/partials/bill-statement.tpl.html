@@ -1,14 +1,18 @@
 <div class="row statement">
 	<div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 row">
 		<div class="col-xs-6 col-sm-4" >
-			<p><span class="date-label">Date:</span><span class="date">{{billCtrl.statement.generated}}</span></p>
-			<p><span class="date-label">Due:</span><span class="date">{{billCtrl.statement.due}}</span></p>
-			<p>Amount: <span class="currency">{{billCtrl.total | currency:"":2}} GBP</span></p>
-		</div>
-		<div class="col-xs-6 col-sm-8 text-right" >
 			<p>Current billing period</p>
 			<p><span class="date-label">from:</span><span class="date">{{billCtrl.statement.generated}}</span></p>
 			<p><span class="date-label">to:</span><span class="date">{{billCtrl.statement.due}}</span></p>
+		</div>
+		<div class="col-xs-6 col-sm-8 text-right" >
+			<p><span class="date-label">Date:</span><span class="date">{{billCtrl.statement.generated}}</span></p>
+			<p><span class="date-label">Due:</span><span class="date">{{billCtrl.statement.due}}</span></p>
+			<br />
+			<p class="total-amount">
+				Total amount:<br />
+				<span class="currency">{{billCtrl.total | currency:"":2}} GBP</span>
+			</p>
 		</div>
 	</div>
 </div>
