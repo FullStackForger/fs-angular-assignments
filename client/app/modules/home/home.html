@@ -1,8 +1,16 @@
-<div class="container-fluid">
+<div class="container-fluid home">
+
 	<div class="row">
 		<div class="row">
-			<div class="col-sm-12 col-md-6 col-md-offset-3">
-				<h3>Hello world</h3>
+			<div class="col-sm-12 col-md-6 col-md-offset-3 header">
+				<p>Below document is locally parsed version of
+					<a ng-href="{{vm.readmeURL}}">project README.md</a> fetched from github source
+					and processed with use of <a ng-href="{{vm.parserURL}}">ng-showdown</a> module.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-6 col-md-offset-3 content">
+				<div markdown-to-html="vm.content"></div>
 			</div>
 		</div>
 	</div>

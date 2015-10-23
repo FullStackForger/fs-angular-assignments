@@ -1,0 +1,17 @@
+.home .header {
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    background-color: #d3dcf3;
+}
+.home .header p {
+    margin: 0px 0px;
+}
+
+.home .content {
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+
+}
+.home p {
+    padding: 5px;
+}

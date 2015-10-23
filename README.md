@@ -55,8 +55,3 @@ as it comes with pre-configured bootstrap.
 Setting up development environment involves installing [gruntjs](http://gruntjs.com/) 
 with CLI option and configuring it to automate builds, open application in default browser 
 and auto-reload when changes occur on *.js, *.css and *.html source files.  
-
-### Next steps
- * Results pagination or infinite scrolling
- * Unit tests with Karma
- * Integration tests with Protractor 
