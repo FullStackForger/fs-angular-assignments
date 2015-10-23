@@ -24,10 +24,9 @@ app/                    --> all of the source files for the application
       custom-directive.test.js    --> version directive tests
       custom-filter.js            --> custom interpolation filter
       custom-filter.test.js       --> interpolate filter tests
-  view1/                --> the view1 view template and logic
-    view1.html              --> the partial template
-    view1.js                --> the controller logic
-    view1_test.js           --> tests of the controller 
+  partials/                 --> partials (only html and css)
+    partial.html               --> the partial template
+    partial.css                --> the stylesheet 
   app.js                --> main application module
   index.html            --> application bootstrap file (deployment)
   index-dev.html        --> application bootstrap file (development)
