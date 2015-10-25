@@ -2,12 +2,16 @@
 
 describe('app.modules.home module', function() {
 
+	var moduleRoute = '/home',
+		templateUrl = 'app/modules/home/home.html',
+		controllerStr = 'HomeController as vm';
+
 	beforeEach(module('app.modules.home'));
 
 	describe('auto routing', function() {
 		it('should load the template', inject(function($route) {
-			expect($route.routes['/home'].controller).toBeUndefined();
-			expect($route.routes['/home'].templateUrl).toEqual('app/modules/home/home.html');
+			expect($route.routes[moduleRoute].controller).toEqual(controllerStr);
+			expect($route.routes[moduleRoute].templateUrl).toEqual(templateUrl);
 		}));
 	});
 
@@ -21,12 +25,11 @@ describe('app.modules.home module', function() {
 			$httpBackend.whenGET('app/modules/home/home.html').respond('<div></div>');
 
 			expect($route.current).toBeUndefined();
-			$location.path('/home');
+			$location.path(moduleRoute);
 			$rootScope.$digest();
 
-			expect($route.current.templateUrl).toEqual('app/modules/home/home.html');
-			expect($route.current.controller).toBeUndefined();
-
+			expect($route.current.templateUrl).toEqual(templateUrl);
+			expect($route.current.controller).toEqual(controllerStr);
 		}));
 	});
 });
