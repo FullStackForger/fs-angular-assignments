@@ -11,7 +11,8 @@ function BillServiceProvider() {
 
 	this.$get = function billServiceFactory ($http, $q) {
 		return {
-			getBill: getBill
+			getBill: getBill,
+			url: dataUrl
 		};
 
 		function getBill () {
