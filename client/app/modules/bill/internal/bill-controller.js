@@ -4,13 +4,17 @@ angular
 
 function BillController(billService) {
 	var vm = this;
-	vm.selection = 'subscriptions';
+	init();
 
-	billService
-		.getBill()
-		.then(parseBill, function (error) {
-			vm.errorMessage = "Bill not available. Please contact SKY for details."
-		});
+	function init() {
+		vm.selection = 'subscriptions';
+
+		billService
+			.getBill()
+			.then(parseBill, function (error) {
+				vm.errorMessage = "Bill not available. Please contact SKY for details."
+			});
+	}
 
 	function parseBill(bill) {
 		vm.statement = bill.statement;
@@ -19,5 +23,4 @@ function BillController(billService) {
 		vm.callCharges = bill.callCharges;
 		vm.skyStore = bill.skyStore;
 	}
-
 }
