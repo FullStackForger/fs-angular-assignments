@@ -7,7 +7,8 @@ function HotelsController($http, $filter, $timeout) {
 
 	$http({
 		method: 'GET',
-		url: '/app/modules/hotels/data/hotels.json'
+		url: 'https://raw.githubusercontent.com/indieforger/fs-angular-assignments/master/'
+			+ 'client/app/modules/hotels/data/hotels.json'
 	}).then(function successCallback(response) {
 		vm.hotels = response.data.Establishments;
 		vm.hotels.forEach(function(hotel) {
