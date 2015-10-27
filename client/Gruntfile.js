@@ -6,7 +6,6 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
-		// annotates dependencies injections
 		ngAnnotate: {
 			options: {
 				singleQuotes: true,
@@ -23,43 +22,55 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// concatenates files
 		concat: {
 			options: {
-				separator: ';',
+				separator: ';\n',
 			},
-			// configuration for grunt-ngconcat
-			ngConcat: {
+			vendor: {
+				files: {
+					'dist/js/vendor.min.js': [
+						'!bower_components/**/.js',
+						'bower_components/angular/angular.min.js',
+						'bower_components/angular-sanitize/angular-sanitize.min.js',
+						'bower_components/angular-route/angular-route.min.js',
+						'bower_components/angular-bootstrap/ui-bootstrap.min.js',
+						'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+						'bower_components/showdown/dist/showdown.min.js',
+						'bower_components/ng-showdown/dist/ng-showdown.min.js'
+					]
+				}
+			},
+			app: {
+				options: {
+					banner: '(function(){\n',
+					footer: '\n})();'
+				},
 				'files': {
 					'dist/js/app.min.js' : [
-						'app/**/*.module.annotated.js',
-						'app/**/*.config.annotated.js',
-						'app/**/*.annotated.js',
-						'!app/**/*.test.js'
-				]},
+						'!app/**/*.annotated.js',
+						'app/**/*-module.annotated.js',
+						'app/**/*-config.annotated.js',
+						'app/**/*.annotated.js'
+					]
+				}
 			},
 		},
 
-		// concatenation and obfuscation
 		uglify: {
 			options: {
 				report: 'min',
 				mangle: false,
-				sourceMap: false,
+				sourceMap: true,
 				sourceMapIncludeSources: true,
 				sourceMapName: 'dist/js/app.min.js.map'
 			},
 			app: {
 				files: {
 					'dist/js/app.min.js': ['dist/js/app.min.js']
-					//	'app/**/*.module.annotated.js',
-					//	'app/**/*.config.annotated.js',
-					//	'app/**/*.annotated.js'
 				}
 			}
 		},
 
-		// creates http server
 		connect: {
 			server: {
 				options: {
@@ -70,7 +81,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// watching for changes in javascript/html files
 		watch: {
 			options: {
 				reload: true,
@@ -88,7 +98,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// opens web app in default browser
 		open: {
 			dev: {
 				path: 'http://localhost:' + SERVER_PORT + '/index-dev.html'
@@ -100,12 +109,13 @@ module.exports = function(grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-ng-annotate');
-	grunt.loadNpmTasks('grunt-ngconcat');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-open');
 
 	grunt.registerTask('dev', ['connect', 'open:dev', 'watch']);
+	grunt.registerTask('try', ['ngAnnotate', 'concat']);
 	grunt.registerTask('default', ['ngAnnotate', 'concat', 'uglify', 'connect', 'open:dist', 'watch']);
 };
