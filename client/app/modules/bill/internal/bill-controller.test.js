@@ -1,5 +1,5 @@
 'use strict'
-describe('app.modules.bill BillController', function () {
+describe('app.modules.bill.internal BillController', function () {
 
 	var $controller, $q, $rootScope, billCtrl, mock;
 
@@ -22,7 +22,7 @@ describe('app.modules.bill BillController', function () {
 		$rootScope.$digest();
 	};
 
-	beforeEach(module('app'));
+	beforeEach(module('app.modules.bill'));
 	beforeEach(inject(function(_$controller_, _$q_, _$rootScope_) {
 		$controller = _$controller_;
 		$q = _$q_;

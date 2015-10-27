@@ -16,7 +16,13 @@ module.exports = function (config) {
 			// app modules
 			'app/app.js',
 			'app/modules/**/*-module.js', // load module definitions first
-			'app/modules/**/*.js'
+			'app/modules/**/*.js',
+			//
+			'app/modules/**/*.tpl.html'
+		],
+
+		exclude: [
+			'app/**/*.annotated.js',
 		],
 
 		autoWatch: true,
@@ -25,17 +31,27 @@ module.exports = function (config) {
 
 		browsers: ['Chrome'],
 
+		preprocessors: {
+			'app/modules/**/*.tpl.html': ['ng-html2js']
+		},
+
 		plugins: [
 			'karma-chrome-launcher',
 			'karma-firefox-launcher',
 			'karma-jasmine',
-			'karma-junit-reporter'
+			'karma-junit-reporter',
+			'karma-ng-html2js-preprocessor'
 		],
 
 		junitReporter: {
 			outputFile: 'test_out/unit.xml',
 			suite: 'unit'
-		}
+		},
 
+		ngHtml2JsPreprocessor: {
+			moduleName: function (htmlPath, originalPath) {
+				return htmlPath;
+			}
+		},
 	});
 };

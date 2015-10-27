@@ -1,5 +1,6 @@
 angular
-	.module('app.modules.bill')
+	.module('app.modules.bill.internal')
+	//.module('app.modules.bill.billDetails', [])
 	.directive('billDetails', function() {
 		return {
 			restrict: 'E',
@@ -9,6 +10,7 @@ angular
 				dataset: '=',
 				fields: '=',
 				total: '='
-			}
+			},
+			replace: false
 		};
 	});
