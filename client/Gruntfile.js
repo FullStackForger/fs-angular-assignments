@@ -146,6 +146,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-open');
 
 	grunt.registerTask('dev', ['connect', 'open:dev', 'watch']);
-	grunt.registerTask('try', ['ngAnnotate', 'concat']);
+	grunt.registerTask('serve', ['connect', 'open:dist', 'watch']);
 	grunt.registerTask('default', ['ngAnnotate', 'concat', 'uglify', 'connect', 'open:dist', 'watch']);
 };
