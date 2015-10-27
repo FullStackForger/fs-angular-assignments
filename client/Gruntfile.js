@@ -24,11 +24,20 @@ module.exports = function(grunt) {
 
 		concat: {
 			options: {
-				separator: ';\n',
+				separator: '\n',
 			},
-			styles: {
+			vendorStyles: {
+				files: {
+					'dist/css/normalize.css': [
+						'bower_components/html5-boilerplate/dist/css/normalize.css'
+					],
+					'dist/css/boilerplate.css': [
+						'bower_components/html5-boilerplate/dist/css/main.css'
+					]
+				}
+			},
+			appStyles: {
 				options: {
-					separator: '\n',
 					process: function(src, filepath) {
 						src = '/* Source: ' + filepath + '*/\n' + src;
 						src = src.replace(/(url\()(\'|\")(img\/)/, '$1$2../../app/$3');
@@ -59,8 +68,10 @@ module.exports = function(grunt) {
 				options: {
 					banner: '(function(){\n\'use strict\';\n',
 					process: function(src, filepath) {
-						return '// Source: ' + filepath + '\n' +
-							src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
+						src = '// Source: ' + filepath + '\n' + src;
+						src = src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
+						src += ';\n'
+						return src;
 					},
 					footer: '\n})();'
 				},
