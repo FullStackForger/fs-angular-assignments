@@ -52,7 +52,11 @@ module.exports = function(grunt) {
 			},
 			app: {
 				options: {
-					banner: '(function(){\n',
+					banner: '(function(){\n\'use strict\';\n',
+					process: function(src, filepath) {
+						return '// Source: ' + filepath + '\n' +
+							src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
+					},
 					footer: '\n})();'
 				},
 				'files': {
