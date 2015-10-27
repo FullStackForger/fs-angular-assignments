@@ -1,0 +1,189 @@
+main {
+    margin: 0px 5px;
+}
+.loader {
+    width: 15px;
+    height: 15px;
+    background-image: url('img/loader.gif');
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.bill .statement {
+    color: #888888;
+    padding-bottom: 20px;
+}
+
+.bill .statement .date-label {
+    width: 60px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.bill .statement .date {
+    color: #444444;
+}
+
+.bill .statement .total-amount {
+    padding-left: 15px;
+    text-align: right;
+    width: 130px;
+    display: inline-block;
+}
+.bill .statement .currency {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #444444;
+}
+
+.bill .details {
+    padding: 0;
+    margin: 0 10px;
+}
+
+.bill .details:first-child {
+    margin-top: 10px;
+}
+
+.bill .details .table {
+    padding: 0;
+    margin: 0;
+}
+
+.bill .details .table tr.even {
+    background: #fafafa;
+}
+.bill .details .table tr > th:last-child,
+.bill .details .table tr > td:last-child {
+    text-align: right;
+    width: 160px;
+    padding-right: 10px;
+}
+
+@media only screen and (max-width : 992px) {
+    .bill .details .table tr > th:last-child,
+    .bill .details .table tr > td:last-child {
+        width: 120px;
+    }
+}
+.home .header {
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    background-color: #d3dcf3;
+}
+.home .header p {
+    margin: 0px 0px;
+}
+
+.home .content {
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+
+}
+.home p {
+    padding: 5px;
+}
+.hotels .margin-bottom-sm {
+    padding-bottom: 10px;
+}
+
+.hotels .hotel {
+    border-top: #dedede solid 1px;
+}
+.hotels .hotel:last-child {
+    border-bottom: #dedede solid 1px;
+}
+
+.hotels .hotel .img-thumbnail {
+    margin-top: 10px !important;
+}
+
+.hotels .hotel h3 {
+    margin-top: 10px;
+}
+
+.hotels .hotel .ratings {
+    margin-top: 10px;
+}
+.hotels .hotel.even {
+    background: #fafafa;
+}
+
+.hotels .sorting span {
+    margin-right: 10px;
+}
+.hotels .sorting .sortorder:after {
+    color: cornflowerblue;
+    content: '\25b2';
+}
+
+.hotels .sorting .sortorder.reverse:after {
+    content: '\25bc';
+}
+
+.hotels .sorting span.sorter a {
+    cursor: pointer;
+}
+.hotels sup.stars {
+    color: gold;
+    font-size: 1em;
+    font-weight: bold;
+    top: 0em;
+}
+
+@media screen and (max-width: 480px) {
+    .hotels .hotel h3 {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-size: 1.5em;
+    }
+
+    .sorting span {
+        margin-right: 20px;
+    }
+
+    .hotels .hotel .ratings .rating:first-child {
+        display: block;
+    }
+
+}
+.menu-wrapper {
+    background: #052e5f;
+    margin: 0px 0 20px;
+}
+.menu {
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    padding: 0.5em;
+    color: #d3e4ff;
+    font-size: 1.4em;
+    margin: 0px;
+}
+
+.menu:before {
+    padding-right: 0.5em;
+}
+
+.menu:after {
+    padding-left: 0.5em;
+}
+
+.menu > li {
+    display: inline;
+
+}
+
+.menu > li:before {
+    padding: 0.5em;
+}
+
+.menu > li:nth-child(1):before {
+    content: "";
+    padding: 0;
+}
+
+.menu a {
+    color: #5789FF;
+}

@@ -26,6 +26,16 @@ module.exports = function(grunt) {
 			options: {
 				separator: ';\n',
 			},
+			styles: {
+				options: {
+					separator: '\n'
+				},
+				files: {
+					'dist/css/app.css': [
+						'app/**/*.css'
+					]
+				}
+			},
 			vendor: {
 				files: {
 					'dist/js/vendor.min.js': [
