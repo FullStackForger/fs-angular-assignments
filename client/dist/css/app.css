@@ -1,15 +1,17 @@
+/* Source: app/app.css*/
 main {
     margin: 0px 5px;
 }
 .loader {
     width: 15px;
     height: 15px;
-    background-image: url('img/loader.gif');
+    background-image: url('../../app/img/loader.gif');
     display: inline-block;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right;
 }
+/* Source: app/modules/bill/bill.css*/
 .bill .statement {
     color: #888888;
     padding-bottom: 20px;
@@ -68,6 +70,7 @@ main {
         width: 120px;
     }
 }
+/* Source: app/modules/home/home.css*/
 .home .header {
     border: 1px solid #eeeeee;
     border-radius: 4px;
@@ -85,6 +88,7 @@ main {
 .home p {
     padding: 5px;
 }
+/* Source: app/modules/hotels/hotels.css*/
 .hotels .margin-bottom-sm {
     padding-bottom: 10px;
 }
@@ -149,6 +153,7 @@ main {
     }
 
 }
+/* Source: app/partials/menu/menu.css*/
 .menu-wrapper {
     background: #052e5f;
     margin: 0px 0 20px;

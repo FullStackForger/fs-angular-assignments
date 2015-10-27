@@ -28,7 +28,12 @@ module.exports = function(grunt) {
 			},
 			styles: {
 				options: {
-					separator: '\n'
+					separator: '\n',
+					process: function(src, filepath) {
+						src = '/* Source: ' + filepath + '*/\n' + src;
+						src = src.replace(/(url\()(\'|\")(img\/)/, '$1$2../../app/$3');
+						return  src;
+					},
 				},
 				files: {
 					'dist/css/app.css': [
