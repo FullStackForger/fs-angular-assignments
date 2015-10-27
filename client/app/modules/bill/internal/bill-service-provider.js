@@ -22,7 +22,6 @@ function BillServiceProvider() {
 				.then(function (response) {
 					deferred.resolve(response.data);
 				}, function (error) {
-					console.log(error);
 					deferred.resolve('Something went wrong. Try again later!');
 				});
 			return deferred.promise;

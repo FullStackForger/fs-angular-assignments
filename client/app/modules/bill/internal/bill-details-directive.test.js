@@ -47,7 +47,7 @@ describe('app.modules.bill', function() {
 
 	describe('billDetails directive', function () {
 
-		beforeEach(module('app.modules.bill.internal'));
+		beforeEach(module('app.modules.bill'));
 		// karma-ng-html2js-preprocessor: check karma.conf.js for configuration
 		beforeEach(module('app/modules/bill/internal/bill-details-directive.tpl.html'));
 
@@ -73,7 +73,7 @@ describe('app.modules.bill', function() {
 						expect(helper.getFieldElement(element, rowIndex, index).text()).toContain(data[field]);
 					} else {
 						// todo: investigate why currency filter is broken
-						console.log('WARNING: currency filter doesn\'t seem to work inside the template');
+						console.log('WARNING: currency filter doesn\'t seem to work inside directive');
 						expect(helper.getFieldElement(element, rowIndex, index).text()).toContain(['GBP']);
 					}
 

@@ -1,5 +1,5 @@
 angular
-	.module('app.modules.bill', ['app.modules.bill.internal', 'ngRoute'])
+	.module('app.modules.bill', ['ngRoute'])
 	.config(function($routeProvider, billServiceProvider) {
 		$routeProvider.when('/bill', {
 			templateUrl: 'app/modules/bill/bill.html',
